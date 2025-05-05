@@ -101,20 +101,15 @@
     const datetimeContainer = document.getElementById('datetime-container');
     const whatsappMsg = document.getElementById('whatsapp-msg');
 
-    yesBtn.addEventListener('click', () => {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      const datetimeStr = "04.05.2025 01:21";
+   yesBtn.addEventListener('click', () => {
+    const datetimeStr = "04.05.2025 01:21";
 
-      const input = document.getElementById('datetimePicker');
-      input.value = datetimeStr;
-      input.min = datetimeStr;
-      input.max = datetimeStr;
+    const input = document.getElementById('datetimePicker');
+    input.value = datetimeStr;
 
-      datetimeContainer.style.display = 'block';
-    });
+    datetimeContainer.style.display = 'block';
+  });
+
 
     goBtn.addEventListener('click', () => {
       setTimeout(() => {
