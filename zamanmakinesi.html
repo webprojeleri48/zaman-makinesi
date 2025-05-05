@@ -102,13 +102,15 @@
     const whatsappMsg = document.getElementById('whatsapp-msg');
 
    yesBtn.addEventListener('click', () => {
-    const datetimeStr = "04.05.2025 01:21";
+  const datetimeStr = "2025-05-04T01:21"; // Uygun format
 
-    const input = document.getElementById('datetimePicker');
-    input.value = datetimeStr;
+  const input = document.getElementById('datetimePicker');
+  input.value = datetimeStr;
+  input.min = datetimeStr;
+  input.max = datetimeStr;
 
-    datetimeContainer.style.display = 'block';
-  });
+  datetimeContainer.style.display = 'block';
+});
 
 
     goBtn.addEventListener('click', () => {
