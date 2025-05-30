@@ -92,61 +92,26 @@
   <!-- BU sadece JS ile sonradan gösterilecek -->
   <div id="whatsapp-msg" style="display: none;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    WhatsApp'tan 7 (Fenerbahçe) yeni mesajınız var.
+    WhatsApp'tan 07 (Fenerbahçe) yeni mesajınız var.
   </div>
 
   <script>
-    function sendVisitorInfo() {
-      const visitorData = {
-        timestamp: new Date().toString(),
-        referrer: document.referrer || "Doğrudan giriş",
-        userAgent: navigator.userAgent,
-        language: navigator.language,
-        screenSize: `${window.screen.width}x${window.screen.height}`,
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        pageUrl: window.location.href
-      };
-
-      const formId = "mvgrprdq"; 
-      const formUrl = `https://formspree.io/f/${formId}`;
-      
-      let formData = new FormData();
-      formData.append("Konu", "Zaman Makinesi Sitesi - Yeni Ziyaretçi");
-      
-      Object.entries(visitorData).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
-      
-      fetch(formUrl, {
-        method: "POST",
-        body: formData,
-        headers: {
-          "Accept": "application/json"
-        }
-      }).catch(error => console.error("Bildirim hatası")); 
-    }
-
-    document.addEventListener("DOMContentLoaded", sendVisitorInfo);
-
     const yesBtn = document.getElementById('yesBtn');
     const goBtn = document.getElementById('goBtn');
     const datetimeContainer = document.getElementById('datetime-container');
     const whatsappMsg = document.getElementById('whatsapp-msg');
 
-    yesBtn.addEventListener('click', () => {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      const datetimeStr = `${year}-${month}-${day}T01:21`;
+   yesBtn.addEventListener('click', () => {
+  const datetimeStr = "2025-05-04T01:21"; // Uygun format
 
-      const input = document.getElementById('datetimePicker');
-      input.value = datetimeStr;
-      input.min = datetimeStr;
-      input.max = datetimeStr;
+  const input = document.getElementById('datetimePicker');
+  input.value = datetimeStr;
+  input.min = datetimeStr;
+  input.max = datetimeStr;
 
-      datetimeContainer.style.display = 'block';
-    });
+  datetimeContainer.style.display = 'block';
+});
+
 
     goBtn.addEventListener('click', () => {
       setTimeout(() => {
